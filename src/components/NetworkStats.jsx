@@ -3,42 +3,38 @@ import { Users, DollarSign, Building, Globe } from 'lucide-react';
 const NetworkStats = () => {
   const stats = [
     {
-      icon: <Users className="w-8 h-8 text-white" />,
+      icon: <Users className="w-8 h-8" />,
       value: "500+",
       label: "Active Merchants",
       description: "Businesses trusting us across Canada",
-      color: "from-sky-blue to-sky-600"
+      color: "bg-sky-blue"
     },
     {
-      icon: <DollarSign className="w-8 h-8 text-white" />,
+      icon: <DollarSign className="w-8 h-8" />,
       value: "$100M+",
       label: "Transactions Processed",
       description: "Secure cash withdrawals handled",
-      color: "from-dark-blue to-blue-700"
+      color: "bg-dark-blue"
     },
     {
-      icon: <Building className="w-8 h-8 text-white" />,
+      icon: <Building className="w-8 h-8" />,
       value: "1,000+",
       label: "ATM Locations",
       description: "Growing network across provinces",
-      color: "from-sky-500 to-sky-700"
+      color: "bg-sky-500"
     },
     {
-      icon: <Globe className="w-8 h-8 text-white" />,
+      icon: <Globe className="w-8 h-8" />,
       value: "99.9%",
       label: "Uptime",
       description: "Reliable network performance",
-      color: "from-blue-600 to-blue-800"
+      color: "bg-blue-600"
     }
   ];
 
   return (
-    <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
-      <div className="clay-card p-8 md:p-12 relative overflow-hidden">
-        {/* Background decorative elements */}
-        <div className="absolute top-0 right-0 w-80 h-80 bg-sky-blue/10 rounded-full blur-3xl -z-10"></div>
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-dark-blue/10 rounded-full blur-3xl -z-10"></div>
-        
+    <section className="py-16 px-4 md:px-8 max-w-7xl mx-auto">
+      <div className="flat-card p-8 md:p-12">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Our Network in <span className="gradient-text">Numbers</span>
@@ -53,13 +49,12 @@ const NetworkStats = () => {
           {stats.map((stat, index) => (
             <div 
               key={index} 
-              className="clay-card p-6 text-center hover-lift group cursor-default"
+              className="flat-card p-6 text-center hover-scale cursor-default"
             >
-              {/* Icon with gradient background */}
-              <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br ${stat.color} 
-                              flex items-center justify-center shadow-lg
-                              group-hover:scale-110 transition-transform duration-300`}>
-                {stat.icon}
+              {/* Icon */}
+              <div className={`w-16 h-16 mx-auto mb-4 rounded-xl ${stat.color} 
+                              flex items-center justify-center`}>
+                <span className="text-white">{stat.icon}</span>
               </div>
               
               <div className="text-4xl md:text-5xl font-bold text-dark-blue mb-2">
@@ -78,9 +73,9 @@ const NetworkStats = () => {
         {/* CTA Section */}
         <div className="mt-12 text-center">
           <p className="text-gray-600 mb-6">
-            Join hundreds of successful merchants who have transformed their business with MHEnterprise
+            Join hundreds of successful merchants with MHEnterprise
           </p>
-          <button className="clay-button">
+          <button className="flat-button">
             Start Your Journey Today
           </button>
         </div>

@@ -1,38 +1,44 @@
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
+import ServicesDropdown from './ServicesDropdown';
 
 const Layout = ({ children }) => {
   return (
-    <div className="min-h-screen bg-gradient-mesh">
-      {/* Enhanced Header with glass effect */}
-      <header className="sticky top-0 z-50 bg-white/70 backdrop-blur-2xl border-b border-white/20 shadow-lg shadow-sky-100/50">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-4">
+    <div className="min-h-screen bg-gray-50">
+      {/* Flat Header */}
+      <header className="sticky top-0 z-50 bg-white border-b-2 border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-3">
           <div className="flex justify-between items-center">
-            <div className="text-2xl md:text-3xl font-bold text-dark-blue">
-              <span className="relative">
-                MHE
-                <span className="text-sky-blue">nterprise</span>
-                <span className="absolute -top-1 -right-2 w-2 h-2 bg-sky-blue rounded-full animate-pulse"></span>
-              </span>
+            {/* Logo Image */}
+            <div>
+              <img 
+                src="/logo-2.png" 
+                alt="MHEnterprise" 
+                className="h-25 w-auto"
+              />
             </div>
             
             <nav className="hidden md:flex gap-8 items-center">
-              {['Home', 'Services', 'Pricing', 'Contact'].map((item) => (
-                <a 
-                  key={item}
-                  href="#" 
-                  className="text-gray-700 hover:text-sky-blue font-medium transition-all duration-300 relative group"
-                >
-                  {item}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-sky-blue group-hover:w-full transition-all duration-300"></span>
-                </a>
-              ))}
-              <button className="clay-button text-sm py-2 px-4">
+              <a href="#" className="text-gray-700 hover:text-sky-blue font-medium transition-colors">
+                Home
+              </a>
+              
+              {/* Services Dropdown - Replace the old Services link */}
+              <ServicesDropdown />
+              
+              <a href="#" className="text-gray-700 hover:text-sky-blue font-medium transition-colors">
+                Pricing
+              </a>
+              <a href="#" className="text-gray-700 hover:text-sky-blue font-medium transition-colors">
+                Contact
+              </a>
+              
+              <button className="flat-button">
                 Get Started
               </button>
             </nav>
 
             {/* Mobile menu button */}
-            <button className="md:hidden p-2 text-gray-700 hover:text-sky-blue">
+            <button className="md:hidden p-2 text-gray-700">
               <Menu size={24} />
             </button>
           </div>
@@ -41,8 +47,8 @@ const Layout = ({ children }) => {
       
       <main>{children}</main>
       
-      {/* Enhanced Footer */}
-      <footer className="bg-white/50 backdrop-blur-xl py-12 px-4 md:px-8 border-t border-gray-100">
+      {/* Flat Footer */}
+      <footer className="bg-white border-t-2 border-gray-200 py-12 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             {/* Company Info */}
@@ -55,13 +61,13 @@ const Layout = ({ children }) => {
                 We help businesses grow with reliable ATM solutions.
               </p>
               <div className="flex gap-4">
-                {['Facebook', 'Twitter', 'LinkedIn', 'Instagram'].map((social) => (
+                {['FB', 'TW', 'LI', 'IG'].map((social) => (
                   <a 
                     key={social}
                     href="#" 
-                    className="w-10 h-10 rounded-xl bg-white shadow-md flex items-center justify-center text-gray-600 hover:text-sky-blue hover:shadow-lg transition-all"
+                    className="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-sky-100 hover:text-sky-blue transition-colors"
                   >
-                    <span className="text-xs font-medium">{social[0]}</span>
+                    <span className="text-xs font-medium">{social}</span>
                   </a>
                 ))}
               </div>
@@ -85,18 +91,9 @@ const Layout = ({ children }) => {
             <div>
               <h4 className="font-bold text-dark-blue mb-4">Contact Us</h4>
               <ul className="space-y-3 text-gray-600">
-                <li className="flex items-center gap-2">
-                  <span className="w-8 h-8 rounded-lg bg-sky-blue/10 flex items-center justify-center text-sky-blue text-sm">📍</span>
-                  Canada
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-8 h-8 rounded-lg bg-sky-blue/10 flex items-center justify-center text-sky-blue text-sm">📞</span>
-                  +1 (555) 123-4567
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-8 h-8 rounded-lg bg-sky-blue/10 flex items-center justify-center text-sky-blue text-sm">✉️</span>
-                  info@mhenterprise.ca
-                </li>
+                <li>📍 Canada</li>
+                <li>📞 +1 (555) 123-4567</li>
+                <li>✉️ info@mhenterprise.ca</li>
               </ul>
             </div>
           </div>

@@ -43,33 +43,29 @@ const WhyChooseSection = () => {
   ];
 
   return (
-    <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
+    <section className="py-16 px-4 md:px-8 max-w-7xl mx-auto bg-white">
       <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
         {/* Left Image */}
         <div className="relative order-2 md:order-1">
-          {/* Decorative elements */}
-          <div className="absolute -top-8 -left-8 w-32 h-32 bg-sky-blue/20 rounded-full blur-3xl -z-10 animate-float"></div>
-          <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-dark-blue/20 rounded-full blur-3xl -z-10 animate-float-delayed"></div>
-          
-          <div className="clay-card p-2 hover-lift">
+          <div className="flat-card p-2 hover-scale">
             <img 
               src="why_chose.png" 
               alt="MHEnterprise ATM Terminal" 
-              className="w-full h-auto rounded-2xl"
+              className="w-full h-auto rounded-xl"
             />
           </div>
 
-          {/* Floating badges */}
-          <div className="absolute -bottom-4 -right-4 clay-card px-4 py-3 animate-float-slow">
+          {/* Badge */}
+          <div className="absolute -bottom-4 -right-4 flat-card px-4 py-2">
             <div className="flex items-center gap-2">
-              <CheckCircle className="w-5 h-5 text-green-500" />
+              <CheckCircle className="w-4 h-4 text-green-500" />
               <span className="text-sm font-medium text-dark-blue">Verified</span>
             </div>
           </div>
         </div>
         
         {/* Right Content */}
-        <div className="space-y-8 order-1 md:order-2">
+        <div className="space-y-6 order-1 md:order-2">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               Why Choose an{' '}
@@ -85,14 +81,14 @@ const WhyChooseSection = () => {
             {features.map((feature, index) => (
               <div 
                 key={index} 
-                className="clay-card p-5 hover-lift cursor-pointer group"
+                className="flat-card p-5 hover-scale cursor-pointer"
               >
                 <div className="flex gap-4 items-start">
-                  <div className="flex-shrink-0 p-3 bg-sky-blue/10 rounded-2xl group-hover:bg-sky-blue/20 transition-colors">
+                  <div className="flex-shrink-0 p-2 bg-sky-100 rounded-lg">
                     {feature.icon}
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-bold text-lg text-dark-blue mb-1 group-hover:text-sky-blue transition-colors">
+                    <h3 className="font-bold text-lg text-dark-blue mb-1">
                       {feature.title}
                     </h3>
                     <p className="text-gray-600">{feature.description}</p>

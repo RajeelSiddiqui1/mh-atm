@@ -8,13 +8,12 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto">
+    <section className="py-16 md:py-20 px-4 md:px-8 max-w-7xl mx-auto">
       <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
         {/* Left Content */}
-        <div className="space-y-8">
+        <div className="space-y-6">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 clay-badge bg-sky-blue/10 text-sky-blue">
-            <span className="w-2 h-2 bg-sky-blue rounded-full animate-pulse"></span>
+          <div className="inline-block bg-sky-100 text-sky-blue px-4 py-1 rounded-full text-sm font-medium">
             Trusted by 500+ Merchants
           </div>
           
@@ -43,7 +42,7 @@ const HeroSection = () => {
             {benefits.map((benefit, index) => (
               <div 
                 key={index} 
-                className="flex items-center gap-2 text-gray-600 bg-white/60 px-4 py-2 rounded-xl"
+                className="flex items-center gap-2 text-gray-600 bg-gray-100 px-4 py-2 rounded-lg"
               >
                 <span className="text-sky-blue">{benefit.icon}</span>
                 {benefit.text}
@@ -52,47 +51,43 @@ const HeroSection = () => {
           </div>
           
           <div className="pt-4 flex flex-wrap gap-4">
-            <button className="clay-button flex items-center gap-2">
+            <button className="flat-button flex items-center gap-2">
               Get Started <ChevronRight size={20} />
             </button>
-            <button className="clay-button-secondary flex items-center gap-2">
+            <button className="flat-button-secondary flex items-center gap-2">
               Learn More
             </button>
           </div>
         </div>
         
-        {/* Right Image with enhanced effects */}
+        {/* Right Image */}
         <div className="relative">
-          {/* Decorative elements */}
-          <div className="absolute -top-8 -right-8 w-32 h-32 bg-sky-blue/20 rounded-full blur-3xl -z-10 animate-float"></div>
-          <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-dark-blue/20 rounded-full blur-3xl -z-10 animate-float-delayed"></div>
-          
-          {/* Main card */}
-          <div className="clay-card p-2 hover-lift">
+          {/* Flat card */}
+          <div className="flat-card p-2 hover-scale">
             <img 
-              src="/hero.png" 
+              src="/hero.svg" 
               alt="MHEnterprise ATM Machine" 
-              className="w-full h-auto rounded-2xl"
+              className="w-full h-auto rounded-xl"
             />
           </div>
 
-          {/* Floating stats card */}
-          <div className="absolute -bottom-6 -left-6 clay-card px-6 py-4 animate-float-slow">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-sky-blue/10 flex items-center justify-center">
-                <TrendingUp className="w-6 h-6 text-sky-blue" />
+          {/* Stats card */}
+          <div className="absolute -bottom-4 -left-4 flat-card px-5 py-3">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-sky-blue flex items-center justify-center">
+                <TrendingUp className="w-5 h-5 text-white" />
               </div>
               <div>
-                <div className="text-2xl font-bold text-dark-blue">$100M+</div>
-                <div className="text-sm text-gray-500">Transactions Processed</div>
+                <div className="text-xl font-bold text-dark-blue">$100M+</div>
+                <div className="text-xs text-gray-500">Transactions</div>
               </div>
             </div>
           </div>
 
-          {/* Floating badge */}
-          <div className="absolute -top-4 -right-4 clay-card px-4 py-2 animate-float">
+          {/* Badge */}
+          <div className="absolute -top-4 -right-4 flat-card px-3 py-2">
             <div className="flex items-center gap-2">
-              <Shield className="w-5 h-5 text-sky-blue" />
+              <Shield className="w-4 h-4 text-sky-blue" />
               <span className="text-sm font-medium text-dark-blue">PCI Compliant</span>
             </div>
           </div>
