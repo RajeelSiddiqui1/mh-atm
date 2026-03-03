@@ -1,31 +1,9 @@
-import { useState, useEffect, useCallback } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import {
   Phone,
   MapPin,
   Menu,
   X,
-  ChevronLeft,
-  ChevronRight,
-  CheckCircle,
-  Key,
-  Monitor,
-  Check,
-  Shield,
-  Headphones,
-  BarChart3,
-  Award,
-  Settings,
-  Zap,
-  Wrench,
-  DollarSign,
-  Cpu,
-  Package,
-  Wifi,
-  Megaphone,
-  Star,
-  Quote,
-  Mail,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";

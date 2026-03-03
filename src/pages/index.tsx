@@ -1,40 +1,12 @@
 import { useState, useEffect, useCallback } from "react";
-import { Link } from "react-router-dom";
-import {
-  Phone,
-  MapPin,
-  Menu,
-  X,
-  ChevronLeft,
-  ChevronRight,
-  CheckCircle,
-  Key,
-  Monitor,
-  Check,
-  Shield,
-  Headphones,
-  BarChart3,
-  Award,
-  Settings,
-  Zap,
-  Wrench,
-  DollarSign,
-  Cpu,
-  Package,
-  Wifi,
-  Megaphone,
-  Star,
-  Quote,
-  Mail,
-} from "lucide-react";
+
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import slider1 from "@/assets/slider-1.png";
 import slider2 from "@/assets/slider-2.png";
 import slider3 from "@/assets/slider-3.png";
 import atmImage from "@/assets/atm-machines-rental-ontario.png";
 import atmSmall from "@/assets/atm.png";
-import Navbar from "@/components/Navbar";
 
 /* ─── Data ─── */
 
@@ -60,139 +32,9 @@ const slides = [
   },
 ];
 
-const serviceCards = [
-  {
-    icon: CheckCircle,
-    title: "Why MH ATM",
-    description:
-      "ATM's, It's All we do! From Service to Cash loading, find out why MH ATM is the number one ATM provider in Ontario.",
-  },
-  {
-    icon: Key,
-    title: "Custom Solutions",
-    description:
-      "Whether you just need transaction processing or a turnkey ATM, MH ATM can provide the ideal solution for your business.",
-  },
-  {
-    icon: Monitor,
-    title: "ATM Sales",
-    description:
-      "MH ATM is partnered with the leading ATM manufacturers to provide you with the latest ATMs at the best prices.",
-  },
-];
 
-const atmOptions = [
-  {
-    number: "Option 1",
-    title: "Own ATM & Cash Load",
-    description:
-      "You own the ATM and provide the vault cash. Keep 100% of the surcharge!",
-    features: [
-      "Best Return on Investment!",
-      "FREE Service, Installation & Training",
-      "Online Monitoring & Real Time Reports",
-      "Cash Level Alerts sent to your phone",
-      "Financing Available",
-    ],
-    highlighted: false,
-  },
-  {
-    number: "Option 2",
-    title: "We Supply ATM & You Cash Load",
-    description:
-      "MH ATM owns the ATM, you provide the vault cash and earn great returns.",
-    features: [
-      "MH ATM support & service for life",
-      "No Purchase Required",
-      "FREE Service, Installation & Training",
-      "Online Monitoring & Real Time Reports",
-      "Cash Level Alerts sent to your phone",
-      "Processing and detailed reporting at no charge",
-    ],
-    highlighted: true,
-  },
-  {
-    number: "Option 3",
-    title: "We Supply ATM & Cash Load",
-    description:
-      "MH ATM provides the vault cash and manages all aspects of the ATM for you.",
-    features: [
-      "100% Passive",
-      "No Capital Investment Required",
-      "Share in ATM Revenues",
-      "FREE Service, Installation & Training",
-      "FREE Processing and Detailed Reporting",
-      "Online Monitoring & Real Time Products",
-    ],
-    highlighted: false,
-  },
-];
 
-const guarantees = [
-  { icon: Shield, text: "Treat you with integrity – No Hidden Fees" },
-  { icon: Settings, text: "FREE Service, Installation & Training" },
-  { icon: Award, text: "No-obligation estimates" },
-  { icon: Headphones, text: "24 hour Customer Support" },
-  { icon: BarChart3, text: "Online Monitoring & Real Time Reports" },
-  { icon: Zap, text: "No day-to-day Involvement, 100% Passive" },
-];
 
-const servicesGrid = [
-  {
-    icon: Wrench,
-    title: "Maintenance",
-    desc: "Concerns about Maintenance or ATM repair can be put to rest with our multi-pronged, proactive approach to service and support.",
-  },
-  {
-    icon: DollarSign,
-    title: "Cash Management",
-    desc: "Access Cash offers support and guidance that set you up for success with ATM money management.",
-  },
-  {
-    icon: Cpu,
-    title: "Transaction Processing",
-    desc: "Efficient transaction processing means greater profitability for your ATM with state-of-the-art systems.",
-  },
-  {
-    icon: Package,
-    title: "Equipment & Supplies",
-    desc: "Our formula for growth: Responsiveness + innovation = satisfied ATM customers.",
-  },
-  {
-    icon: Wifi,
-    title: "Telecommunications",
-    desc: "Whether wired or wireless, we ensure your ATM is always connected and ready to make you money.",
-  },
-  {
-    icon: Megaphone,
-    title: "Target Marketing",
-    desc: "Take advantage of ATM screen advertising and let your customers know about discount offers and promotions.",
-  },
-];
-
-const testimonials = [
-  {
-    name: "Tatum M.",
-    text: "We have been using MH ATM over 3 years in our pub. I highly recommend MH ATM for the rapid service and experience. I personally would not want to use anyone else.",
-  },
-  {
-    name: "Tomas C.",
-    text: "I greatly appreciate your service to get us ATM machine in our store. It was a pleasure working with you and I would recommend you to anyone who is looking for a ATM machine.",
-  },
-  {
-    name: "Robert O.",
-    text: "From the time I called, to the time MH ATM showed up was less than 24 hrs. My business is cash only, that would not be possible without MH ATM. Thank you!",
-  },
-];
-
-const footerLinks = ["Home", "ATM Machines", "About Us", "Services", "Contact"];
-const footerServices = [
-  "Maintenance",
-  "Cash Management",
-  "Transaction Processing",
-  "Equipment & Supplies",
-  "Telecommunications",
-];
 
 const businessTypes = [
   "Bar / Tavern",

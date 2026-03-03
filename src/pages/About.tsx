@@ -1,8 +1,4 @@
-import { Phone, Mail, MapPin, Check } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/theme-toggle";
 import hyosungImage from "@/assets/Nautilus-Hyosung-Force.png";
-import { Link } from "react-router-dom";
 
 const About = () => {
   return (
