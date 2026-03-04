@@ -55,7 +55,7 @@ const businessTypes = [
 /* ─── Page ─── */
 
 const Index = () => {
-  
+
   const [current, setCurrent] = useState(0);
   const [formData, setFormData] = useState({
     firstName: "",
@@ -109,7 +109,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* ─── Header ─── */}
- 
+
 
       {/* ─── Hero Slider ─── */}
       <section className="relative h-[85vh] min-h-[600px] overflow-hidden mt-[105px]">
@@ -121,24 +121,30 @@ const Index = () => {
             <img
               src={slide.image}
               alt={slide.title}
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover transform scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-transparent" />
+            {/* Dark scrim for premium feel in both modes */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
             <div className="relative z-10 container h-full flex items-center">
-              <div className="max-w-xl">
+              <div className="max-w-2xl">
                 {i === current && (
                   <>
-                    <p className="text-primary font-heading font-semibold text-lg mb-2 animate-fade-up italic">
+                    <p className="text-primary font-heading font-bold text-xl mb-4 animate-fade-up tracking-widest uppercase">
                       {slide.subtitle}
                     </p>
-                    <h1 className="font-heading font-black text-4xl md:text-6xl lg:text-7xl text-foreground leading-tight animate-fade-up-delay-1">
+                    <h1 className="font-heading font-black text-5xl md:text-7xl lg:text-8xl text-white leading-[1.1] animate-fade-up-delay-1 drop-shadow-sm">
                       {slide.title}
                     </h1>
                     {slide.description && (
-                      <p className="text-xl md:text-2xl text-muted-foreground mt-4 animate-fade-up-delay-2">
+                      <p className="text-xl md:text-2xl text-gray-200 mt-6 animate-fade-up-delay-2 max-w-lg leading-relaxed">
                         {slide.description}
                       </p>
                     )}
+                    <div className="mt-10 animate-fade-up-delay-2">
+                      <Button className="bg-primary text-white hover:bg-green-dark px-10 py-7 text-lg font-heading font-bold rounded-lg shadow-xl shadow-primary/20">
+                        Get Started
+                      </Button>
+                    </div>
                   </>
                 )}
               </div>
@@ -505,7 +511,7 @@ const Index = () => {
                   and Detailed Reporting Online Monitoring & Real Time Products
                 </p>
                 <h3 className="font-heading font-bold text-center py-3 text-lg text-foreground mb-2">
-                ATM Ontario provides the vault cash and manages all aspects of the ATM for you. You share in the ATM surcharge revenue and gain all the benefits of offering an ATM.
+                  ATM Ontario provides the vault cash and manages all aspects of the ATM for you. You share in the ATM surcharge revenue and gain all the benefits of offering an ATM.
                 </h3>
               </div>
             </div>
@@ -515,7 +521,7 @@ const Index = () => {
                 Option 2
               </div>
               <div className="text-muted-foreground text-lg p-3 text-center">
-               We Supply ATM & You Cash Load
+                We Supply ATM & You Cash Load
               </div>
               <img
                 src={atmSmall}
@@ -524,12 +530,12 @@ const Index = () => {
               />
               <div className="p-6">
                 <p className="text-muted-foreground my-3 text-sm">
-              ATM Ontario support & service for life.
-No Purchase Required
-FREE Service, Installation & Training
-Online Monitoring & Real Time Reports
-Cash Level Alerts sent to your phone
-Processing and detailed reporting at no charge
+                  ATM Ontario support & service for life.
+                  No Purchase Required
+                  FREE Service, Installation & Training
+                  Online Monitoring & Real Time Reports
+                  Cash Level Alerts sent to your phone
+                  Processing and detailed reporting at no charge
                 </p>
                 <h3 className="font-heading font-bold text-center py-3 text-lg text-foreground mb-2">
                   ATM Ontario owns the ATM, you provide the vault cash and earn great returns.
@@ -565,9 +571,9 @@ Processing and detailed reporting at no charge
         </div>
       </section>
 
-    
 
-   
+
+
     </div>
   );
 };

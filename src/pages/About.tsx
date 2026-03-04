@@ -2,19 +2,22 @@ import hyosungImage from "@/assets/Nautilus-Hyosung-Force.png";
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-background">
+ <div className="mt-[105px]">
  
 
       {/* ─── Hero Section ─── */}
-      <section className="pt-[105px] pb-20 bg-gradient-to-r from-green-dark to-primary">
-        <div className="container mt-5">
-          <div className="text-center">
-            <h1 className="font-heading p-4 font-black text-4xl md:text-6xl text-primary-foreground mb-4">About Us</h1>
-            <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">Learn more about MH ATM and our commitment to providing secure, reliable ATM services in Ontario.</p>
-          </div>
+
+            <section className="relative py-24 bg-gradient-to-br from-foreground to-muted overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary)/0.15),transparent_70%)]" />
+        <div className="container relative z-10 text-center">
+          <h1 className="font-heading font-bold text-4xl md:text-5xl text-background mb-4">ABOUT US</h1>
+          <div className="w-16 h-1 bg-primary mx-auto mb-6" />
+          <p className="text-background/80 text-lg max-w-2xl mx-auto">
+            Learn more about MH ATM and our commitment to providing secure, reliable ATM services in Ontario.
+          </p>
         </div>
       </section>
-
+    
       {/* ─── Main Content ─── */}
       <section className="py-20 bg-background">
         <div className="container">

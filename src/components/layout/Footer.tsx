@@ -32,8 +32,9 @@ const Footer = () => {
               {footerLinks.map((item) => (
                 <li key={item}>
                   {item === "Home" && <Link to="/" className="text-muted-foreground text-sm hover:text-primary transition-colors">{item}</Link>}
+                  {item === "ATM Machines" && <Link to="/atm-machines" className="text-muted-foreground text-sm hover:text-primary transition-colors">{item}</Link>}
                   {item === "About Us" && <Link to="/about" className="text-muted-foreground text-sm hover:text-primary transition-colors">{item}</Link>}
-                  {item !== "Home" && item !== "About Us" && (
+                  {item !== "Home" && item !== "About Us" && item !== "ATM Machines" && (
                     <a href="#" className="text-muted-foreground text-sm hover:text-primary transition-colors">{item}</a>
                   )}
                 </li>

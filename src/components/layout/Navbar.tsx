@@ -7,17 +7,17 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { Link } from "react-router-dom";
 
 
 
 function Navbar() {
 
-    const navItems = ["Home", "ATM Machines", "About Us", "Services", "Contact"];
-const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
     <>
-       <header className="fixed top-0 left-0 right-0 z-50">
+      <header className="fixed top-0 left-0 right-0 z-50">
         <div className="bg-secondary border-b border-border">
           <div className="container flex items-center justify-between py-2 text-sm">
             <div className="flex items-center gap-6">
@@ -56,15 +56,36 @@ const [mobileOpen, setMobileOpen] = useState(false);
               </div>
             </a>
             <div className="hidden lg:flex items-center gap-8">
-              {navItems.map((item) => (
-                <a
-                  key={item}
-                  href="#"
-                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all hover:after:w-full"
-                >
-                  {item}
-                </a>
-              ))}
+              <Link
+                to="/"
+                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all hover:after:w-full"
+              >
+                Home
+              </Link>
+              <Link
+                to="/atm-machines"
+                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all hover:after:w-full"
+              >
+                ATM Machines
+              </Link>
+              <Link
+                to="/about"
+                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all hover:after:w-full"
+              >
+                About Us
+              </Link>
+              <a
+                href="#"
+                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all hover:after:w-full"
+              >
+                Services
+              </a>
+              <a
+                href="#"
+                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all hover:after:w-full"
+              >
+                Contact
+              </a>
             </div>
             <div className="hidden lg:block">
               <div className="flex items-center gap-3">
@@ -90,15 +111,39 @@ const [mobileOpen, setMobileOpen] = useState(false);
               <div className="flex justify-end mb-2">
                 <ThemeToggle />
               </div>
-              {navItems.map((item) => (
-                <a
-                  key={item}
-                  href="#"
-                  className="block text-muted-foreground hover:text-primary py-2"
-                >
-                  {item}
-                </a>
-              ))}
+              <Link
+                to="/"
+                className="block text-muted-foreground hover:text-primary py-2"
+                onClick={() => setMobileOpen(false)}
+              >
+                Home
+              </Link>
+              <Link
+                to="/atm-machines"
+                className="block text-muted-foreground hover:text-primary py-2"
+                onClick={() => setMobileOpen(false)}
+              >
+                ATM Machines
+              </Link>
+              <Link
+                to="/about"
+                className="block text-muted-foreground hover:text-primary py-2"
+                onClick={() => setMobileOpen(false)}
+              >
+                About Us
+              </Link>
+              <a
+                href="#"
+                className="block text-muted-foreground hover:text-primary py-2"
+              >
+                Services
+              </a>
+              <a
+                href="#"
+                className="block text-muted-foreground hover:text-primary py-2"
+              >
+                Contact
+              </a>
               <Button className="w-full bg-primary text-primary-foreground font-heading font-semibold mt-2">
                 Get A Quote!
               </Button>
