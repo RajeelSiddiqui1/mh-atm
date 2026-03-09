@@ -1,0 +1,11 @@
+version:"3.8"
+
+
+services:
+  frontend:
+   build .
+   container_name: mh_atm
+   ports:
+    - "5175:80"
+
+   restart:always 
