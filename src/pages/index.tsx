@@ -602,9 +602,7 @@ const Index = () => {
           <div className="grid md:grid-cols-3 gap-8 items-stretch">
             {/* ─── OPTION 1: Complete Turnkey Solution ─── */}
             <div className="glass-panel rounded-2xl border-2 border-emerald-500/80 shadow-xl p-8 flex flex-col justify-between relative glass-card-interactive">
-              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-emerald-600 text-white font-heading font-black text-xs uppercase tracking-wider shadow-md">
-                ⭐ Most Popular Option
-              </div>
+              
 
               <div>
                 <div className="text-center mb-6 pt-2">
