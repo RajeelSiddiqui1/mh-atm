@@ -1,95 +1,155 @@
 import { useState, useEffect, useCallback } from "react";
-
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  ShieldCheck,
+  CheckCircle2,
+  Phone,
+  Sparkles,
+  TrendingUp,
+  Clock,
+  Coins,
+  Store,
+  Fuel,
+  Utensils,
+  Wine,
+  Building2,
+  CalendarDays,
+  ArrowRight,
+  Award,
+} from "lucide-react";
 import slider1 from "@/assets/slider-1.png";
 import slider2 from "@/assets/slider-2.png";
 import slider3 from "@/assets/slider-3.png";
+import sliderCanada from "@/assets/hero-slider-canada.jpg";
 import atmImage from "@/assets/atm-machines-rental-ontario.png";
 import atmSmall from "@/assets/atm.png";
+import hyosungForce from "@/assets/Nautilus-Hyosung-Force.png";
+import atmMachine1 from "@/assets/atm-machine-1.jpg";
 
-/* ─── Data ─── */
-
-
+/* ─── Slides Data ─── */
 const slides = [
   {
-    image: slider1,
-    subtitle: "#1 ATM Operator",
-    title: "in Ontario.",
-    description: "",
+    image: sliderCanada,
+    badge: "🍁 #1 ATM OPERATOR IN ONTARIO, CANADA",
+    title: "Next-Gen ATM Solutions for Ontario Businesses",
+    description:
+      "Maximize store foot traffic and generate 100% passive surcharge revenue with zero upfront cost, free installation, and 24/7 Canadian vault management.",
+    cta: "Request Free Placement",
+    bonus: "$1,000 Signing Bonus Available",
   },
   {
     image: slider2,
-    subtitle: "The Best People,",
-    title: "empowered with the Best Technology.",
-    description: "",
+    badge: "⚡ EMV CHIP & CONTACTLESS TAP ENABLED",
+    title: "Empowered with the Best Financial Technology",
+    description:
+      "Reliable Nautilus Hyosung & Genmega cash dispensers featuring 99.9% uptime, tamper-proof vaults, and real-time mobile portal monitoring.",
+    cta: "Explore Our ATM Fleet",
+    bonus: "Zero Maintenance Invoices",
   },
   {
     image: slider3,
-    subtitle: "Making cash",
-    title: "accessible",
-    description: "with over 10,000 ATMs.",
+    badge: "🇨🇦 OVER 10,000+ ATMS DEPLOYED",
+    title: "Making Cash Accessible Across All Ontario",
+    description:
+      "Serving convenience stores, gas stations, restaurants, bars, and festivals across the GTA, Ottawa, Hamilton, and Southwestern Ontario.",
+    cta: "See Service Areas",
+    bonus: "24/7 Emergency Local Dispatch",
+  },
+  {
+    image: slider1,
+    badge: "💰 100% PASSIVE INCOME STREAM",
+    title: "Eliminate Your Credit & Debit Terminal Fees",
+    description:
+      "Encourage cash purchases in your venue, reduce card interchange costs, and earn monthly direct-deposit profit sharing without lifting a finger.",
+    cta: "Calculate Revenue",
+    bonus: "Turnkey Cash Loading Included",
   },
 ];
 
-
-
-
-
 const businessTypes = [
-  "Bar / Tavern",
-  "Restaurant",
-  "Gas Station",
   "Convenience Store",
-  "Liquor Store",
-  "Hotel / Motel",
-  "Fast Food Restaurant",
-  "Entertainment Venue",
-  "Retail Store",
-  "Office Building",
-  "Shopping Mall",
-  "Event / Festival",
-  "Other",
+  "Gas Station",
+  "Bar / Tavern / Nightclub",
+  "Restaurant / Food Court",
+  "Liquor Store / Beer Store",
+  "Hotel / Motel / Hospitality",
+  "Fast Food / Drive-thru",
+  "Entertainment & Gaming Venue",
+  "Retail Store / Mall",
+  "Event / Festival / Pop-up",
+  "Cannabis Dispensary",
+  "Other Commercial Venue",
 ];
 
-/* ─── Page ─── */
+const venueCategories = [
+  {
+    icon: Store,
+    name: "Convenience Stores",
+    desc: "Boost impulse buys and eliminate credit card swipe fees.",
+  },
+  {
+    icon: Fuel,
+    name: "Gas Stations",
+    desc: "Keep customers on-site with quick, secure cash access.",
+  },
+  {
+    icon: Wine,
+    name: "Bars & Nightclubs",
+    desc: "Cash-only bar sales speed up line throughput and tips.",
+  },
+  {
+    icon: Utensils,
+    name: "Restaurants & Diners",
+    desc: "Give diners convenient payment flexibility.",
+  },
+  {
+    icon: Building2,
+    name: "Hotels & Motels",
+    desc: "Provide 24/7 amenity value for travelers and tourists.",
+  },
+  {
+    icon: CalendarDays,
+    name: "Events & Festivals",
+    desc: "Mobile high-capacity ATMs for weekend fairs and concerts.",
+  },
+];
 
+/* ─── Page Component ─── */
 const Index = () => {
-
   const [current, setCurrent] = useState(0);
+  const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     company: "",
     address: "",
     city: "",
-    province: "",
+    province: "Ontario",
     postalCode: "",
     businessType: "",
     email: "",
     phone: "",
     comment: "",
-    interestedInTips: false,
+    interestedInTips: true,
   });
 
-  const next = useCallback(
-    () => setCurrent((c) => (c + 1) % slides.length),
-    [],
-  );
+  const next = useCallback(() => setCurrent((c) => (c + 1) % slides.length), []);
   const prev = useCallback(
     () => setCurrent((c) => (c - 1 + slides.length) % slides.length),
-    [],
+    []
   );
 
   useEffect(() => {
-    const timer = setInterval(next, 5000);
+    const timer = setInterval(next, 6000);
     return () => clearInterval(timer);
   }, [next]);
 
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >,
+    >
   ) => {
     const { name, value, type } = e.target;
     const checked =
@@ -102,48 +162,76 @@ const Index = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("Thank you! We will contact you soon.");
+    setFormSubmitted(true);
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* ─── Header ─── */}
-
-
+    <div className="min-h-screen bg-slate-50 text-slate-900 selection:bg-emerald-100 selection:text-emerald-900">
       {/* ─── Hero Slider ─── */}
-      <section className="relative h-[85vh] min-h-[600px] overflow-hidden mt-[105px]">
+      <section className="relative h-[88vh] min-h-[640px] max-h-[820px] overflow-hidden mt-[85px] sm:mt-[95px] bg-slate-950">
         {slides.map((slide, i) => (
           <div
             key={i}
-            className={`absolute inset-0 transition-opacity duration-1000 ${i === current ? "opacity-100 z-10" : "opacity-0 z-0"}`}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              i === current ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+            }`}
           >
+            {/* Background Image */}
             <img
               src={slide.image}
               alt={slide.title}
-              className="absolute inset-0 w-full h-full object-cover transform scale-105"
+              className="absolute inset-0 w-full h-full object-cover object-center transform scale-105 transition-transform duration-10000"
             />
-            {/* Dark scrim for premium feel in both modes */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+
+            {/* Gradient Overlays for High Contrast & Readability */}
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/65 to-slate-950/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/20" />
+
+            {/* Slide Content */}
             <div className="relative z-10 container h-full flex items-center">
-              <div className="max-w-2xl">
+              <div className="max-w-3xl py-12">
                 {i === current && (
                   <>
-                    <p className="text-primary font-heading font-bold text-xl mb-4 animate-fade-up tracking-widest uppercase">
-                      {slide.subtitle}
-                    </p>
-                    <h1 className="font-heading font-black text-5xl md:text-7xl lg:text-8xl text-white leading-[1.1] animate-fade-up-delay-1 drop-shadow-sm">
+                    {/* Badge */}
+                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-xs font-heading font-bold uppercase tracking-wider mb-5 animate-fade-up shadow-sm">
+                      <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+                      <span>{slide.badge}</span>
+                    </div>
+
+                    {/* Headline */}
+                    <h1 className="font-heading font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-[1.1] animate-fade-up-delay-1 drop-shadow-md">
                       {slide.title}
                     </h1>
-                    {slide.description && (
-                      <p className="text-xl md:text-2xl text-gray-200 mt-6 animate-fade-up-delay-2 max-w-lg leading-relaxed">
-                        {slide.description}
-                      </p>
-                    )}
-                    <div className="mt-10 animate-fade-up-delay-2">
-                      <Button className="bg-primary text-white hover:bg-green-dark px-10 py-7 text-lg font-heading font-bold rounded-lg shadow-xl shadow-primary/20">
-                        Get Started
+
+                    {/* Subtitle / Description */}
+                    <p className="text-lg sm:text-xl text-slate-200 mt-5 mb-8 animate-fade-up-delay-2 max-w-2xl leading-relaxed">
+                      {slide.description}
+                    </p>
+
+                    {/* Action Row & Floating Perks */}
+                    <div className="flex flex-wrap items-center gap-4 animate-fade-up-delay-2">
+                      <Button
+                        asChild
+                        className="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-heading font-black text-base sm:text-lg px-8 py-6 rounded-xl shadow-lg shadow-emerald-500/30 transition-all hover:scale-105"
+                      >
+                        <a href="#quote-form" className="flex items-center gap-2">
+                          <span>{slide.cta}</span>
+                          <ArrowRight className="w-5 h-5" />
+                        </a>
                       </Button>
+                      <a
+                        href="tel:+18449399378"
+                        className="inline-flex items-center gap-2 px-6 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-heading font-bold text-sm backdrop-blur-md border border-white/20 transition-all"
+                      >
+                        <Phone className="w-4 h-4 text-emerald-400" />
+                        <span>1-844-939-9378</span>
+                      </a>
+                    </div>
+
+                    {/* Bonus Tag */}
+                    <div className="mt-6 flex items-center gap-2 text-emerald-300 text-xs font-semibold animate-fade-up-delay-2">
+                      <Award className="w-4 h-4 text-yellow-400" />
+                      <span>Special Program: {slide.bonus}</span>
                     </div>
                   </>
                 )}
@@ -151,429 +239,657 @@ const Index = () => {
             </div>
           </div>
         ))}
+
+        {/* Slider Controls */}
         <button
           onClick={prev}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-secondary/80 backdrop-blur flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-all"
+          className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/20 hover:bg-emerald-500 text-white hover:text-slate-950 backdrop-blur-md border border-white/30 flex items-center justify-center transition-all shadow-lg"
+          aria-label="Previous slide"
         >
           <ChevronLeft className="w-6 h-6" />
         </button>
         <button
           onClick={next}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-secondary/80 backdrop-blur flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-all"
+          className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/20 hover:bg-emerald-500 text-white hover:text-slate-950 backdrop-blur-md border border-white/30 flex items-center justify-center transition-all shadow-lg"
+          aria-label="Next slide"
         >
           <ChevronRight className="w-6 h-6" />
         </button>
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+
+        {/* Slide Progress Indicators */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2.5 bg-slate-900/60 px-4 py-2 rounded-full backdrop-blur-md border border-white/10">
           {slides.map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              className={`w-3 h-3 rounded-full transition-all ${i === current ? "bg-primary w-8" : "bg-muted-foreground/40"}`}
+              className={`h-2 rounded-full transition-all duration-500 ${
+                i === current ? "bg-emerald-400 w-8" : "bg-white/40 w-2.5 hover:bg-white/70"
+              }`}
+              aria-label={`Go to slide ${i + 1}`}
             />
           ))}
         </div>
       </section>
 
-      {/* ─── Services Cards ─── */}
-      {/* <section className="py-20 bg-section-alt">
-        <div className="container">
-          <div className="grid md:grid-cols-3 gap-8">
-            {serviceCards.map((service, i) => (
-              <div key={i} className="bg-card border border-border rounded-xl p-8 text-center group hover:border-primary/50 transition-all hover:-translate-y-1 hover:shadow-[0_8px_30px_-10px_hsl(var(--primary)/0.3)]">
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors">
-                  <service.icon className="w-8 h-8 text-primary" />
+      {/* ─── Highlights Stats Strip ─── */}
+      
+
+      {/* ─── 24 Hour Service / Get Free Quote Section with Canadian Flag mixture ─── */}
+      <section id="quote-form" className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-white to-slate-100 pointer-events-none" />
+        <div className="container relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200 text-xs font-heading font-bold uppercase tracking-wider mb-3">
+              <Sparkles className="w-3.5 h-3.5 text-emerald-700" />
+              <span>24 Hour Emergency & Placement Support</span>
+            </div>
+            <h2 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl text-slate-900 mb-4 tracking-tight">
+              Get a Free ATM Machine for Your Ontario Business
+            </h2>
+            <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+              MH ATM provides complete turnkey ATM solutions to businesses, companies, and special events across all of Ontario. Choose your ideal program and get started in under 48 hours.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-10 items-start">
+            {/* Left: Canadian Flag + ATM Machine Visual Showcase */}
+            <div className="lg:col-span-6 space-y-6">
+              <div className="glass-panel-canada rounded-2xl p-6 sm:p-8 relative overflow-hidden border border-red-200/80 shadow-xl">
+                {/* Canadian Flag Header Accent */}
+                <div className="flex items-center justify-between pb-4 border-b border-red-200/60 mb-6">
+                  <div className="flex items-center gap-2">
+                    <span className="text-2xl">🇨🇦</span>
+                    <div>
+                      <h4 className="font-heading font-black text-slate-900 text-base">
+                        Ontario ATM Network Operations
+                      </h4>
+                      <p className="text-xs text-red-600 font-bold uppercase tracking-wider">
+                        Official Service Provider
+                      </p>
+                    </div>
+                  </div>
+                  <span className="px-2.5 py-1 rounded-full bg-red-100 text-red-800 text-[11px] font-bold border border-red-200">
+                    Active in GTA & Beyond
+                  </span>
                 </div>
-                <h3 className="font-heading font-bold text-xl text-foreground mb-3">{service.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
-                <a href="#" className="inline-block mt-4 text-primary text-sm font-semibold hover:underline">read more &raquo;</a>
+
+                {/* ATM Image Container with clean presentation */}
+                <div className="relative rounded-xl overflow-hidden bg-gradient-to-b from-white/90 to-slate-50/90 p-4 border border-slate-200 shadow-inner group">
+                  <img
+                    src={atmImage}
+                    alt="ATM Machines Rental Ontario with Canadian Flag"
+                    className="w-full h-auto object-contain rounded-lg group-hover:scale-102 transition-transform duration-500"
+                  />
+                  <div className="absolute bottom-3 left-3 right-3 glass-panel rounded-lg p-3 flex items-center justify-between border border-slate-200">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping" />
+                      <span className="text-xs font-bold text-slate-800">
+                        24/7 Rapid Cash Vault Dispatch
+                      </span>
+                    </div>
+                    <span className="text-[11px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">
+                      Zero Fees
+                    </span>
+                  </div>
+                </div>
+
+                {/* Bullet Points */}
+                <div className="mt-6 grid sm:grid-cols-2 gap-3.5">
+                  <div className="flex items-start gap-2.5 p-3 rounded-xl bg-white/80 border border-slate-200 text-xs font-medium text-slate-700">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                    <span>Free Delivery, Rigging & Installation</span>
+                  </div>
+                  <div className="flex items-start gap-2.5 p-3 rounded-xl bg-white/80 border border-slate-200 text-xs font-medium text-slate-700">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                    <span>Vault Cash Fully Provided & Insured</span>
+                  </div>
+                  <div className="flex items-start gap-2.5 p-3 rounded-xl bg-white/80 border border-slate-200 text-xs font-medium text-slate-700">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                    <span>Direct Monthly Surcharge Revenue</span>
+                  </div>
+                  <div className="flex items-start gap-2.5 p-3 rounded-xl bg-white/80 border border-slate-200 text-xs font-medium text-slate-700">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                    <span>Up to $1,000 Upfront Signing Bonus</span>
+                  </div>
+                </div>
               </div>
-            ))}
+
+              {/* Direct Assistance Box */}
+              <div className="glass-panel-emerald rounded-2xl p-5 flex items-center justify-between border border-emerald-200">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-md">
+                    <Phone className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-emerald-800 font-bold uppercase tracking-wider">
+                      Need Urgent ATM Placement?
+                    </p>
+                    <p className="text-slate-900 font-heading font-black text-lg">
+                      1-844-939-9378
+                    </p>
+                  </div>
+                </div>
+                <a
+                  href="tel:+18449399378"
+                  className="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition-colors shadow-sm"
+                >
+                  Call Now
+                </a>
+              </div>
+            </div>
+
+            {/* Right: Glassmorphism Quote Form */}
+            <div className="lg:col-span-6">
+              <div className="glass-panel rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xl relative">
+                <div className="mb-6">
+                  <span className="text-xs font-bold text-emerald-700 uppercase tracking-widest block mb-1">
+                    Free Consultation & Placement
+                  </span>
+                  <h3 className="font-heading font-black text-2xl text-slate-900">
+                    Request Your Free ATM Machine
+                  </h3>
+                  <p className="text-slate-500 text-sm mt-1">
+                    No obligations. Our Ontario team will contact you within 24 hours.
+                  </p>
+                </div>
+
+                {formSubmitted ? (
+                  <div className="p-8 rounded-xl bg-emerald-50 border border-emerald-200 text-center space-y-4 animate-fade-up">
+                    <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto">
+                      <CheckCircle2 className="w-8 h-8" />
+                    </div>
+                    <h4 className="font-heading font-black text-2xl text-slate-900">
+                      Thank You, {formData.firstName || "Customer"}!
+                    </h4>
+                    <p className="text-slate-600 text-sm max-w-md mx-auto">
+                      Your ATM placement request has been received. Our Ontario account specialist will call you at <strong>{formData.phone || "your number"}</strong> to confirm details.
+                    </p>
+                    <Button
+                      onClick={() => setFormSubmitted(false)}
+                      variant="outline"
+                      className="border-emerald-600 text-emerald-700 hover:bg-emerald-100 mt-2"
+                    >
+                      Submit Another Request
+                    </Button>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div>
+                        <label
+                          htmlFor="firstName"
+                          className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5"
+                        >
+                          First Name *
+                        </label>
+                        <input
+                          type="text"
+                          id="firstName"
+                          name="firstName"
+                          value={formData.firstName}
+                          onChange={handleChange}
+                          required
+                          placeholder="John"
+                          className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 bg-white text-slate-900 placeholder:text-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all shadow-xs"
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="lastName"
+                          className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5"
+                        >
+                          Last Name *
+                        </label>
+                        <input
+                          type="text"
+                          id="lastName"
+                          name="lastName"
+                          value={formData.lastName}
+                          onChange={handleChange}
+                          required
+                          placeholder="Smith"
+                          className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 bg-white text-slate-900 placeholder:text-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all shadow-xs"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div>
+                        <label
+                          htmlFor="company"
+                          className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5"
+                        >
+                          Business / Venue Name *
+                        </label>
+                        <input
+                          type="text"
+                          id="company"
+                          name="company"
+                          value={formData.company}
+                          onChange={handleChange}
+                          required
+                          placeholder="e.g. Ontario Mart"
+                          className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 bg-white text-slate-900 placeholder:text-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all shadow-xs"
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="businessType"
+                          className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5"
+                        >
+                          Business Type *
+                        </label>
+                        <select
+                          id="businessType"
+                          name="businessType"
+                          value={formData.businessType}
+                          onChange={handleChange}
+                          required
+                          className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 bg-white text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all shadow-xs"
+                        >
+                          <option value="">Select Type</option>
+                          {businessTypes.map((type) => (
+                            <option key={type} value={type}>
+                              {type}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div>
+                        <label
+                          htmlFor="email"
+                          className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5"
+                        >
+                          Email Address *
+                        </label>
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          required
+                          placeholder="john@example.ca"
+                          className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 bg-white text-slate-900 placeholder:text-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all shadow-xs"
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="phone"
+                          className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5"
+                        >
+                          Phone Number *
+                        </label>
+                        <input
+                          type="tel"
+                          id="phone"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          required
+                          placeholder="(905) 000-0000"
+                          className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 bg-white text-slate-900 placeholder:text-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all shadow-xs"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid sm:grid-cols-3 gap-4">
+                      <div className="sm:col-span-2">
+                        <label
+                          htmlFor="city"
+                          className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5"
+                        >
+                          City in Ontario *
+                        </label>
+                        <input
+                          type="text"
+                          id="city"
+                          name="city"
+                          value={formData.city}
+                          onChange={handleChange}
+                          required
+                          placeholder="Toronto, Mississauga, etc."
+                          className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 bg-white text-slate-900 placeholder:text-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all shadow-xs"
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="postalCode"
+                          className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5"
+                        >
+                          Postal Code
+                        </label>
+                        <input
+                          type="text"
+                          id="postalCode"
+                          name="postalCode"
+                          value={formData.postalCode}
+                          onChange={handleChange}
+                          placeholder="M5V 2T6"
+                          className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 bg-white text-slate-900 placeholder:text-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all shadow-xs"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="comment"
+                        className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5"
+                      >
+                        Additional Notes / Foot Traffic Details
+                      </label>
+                      <textarea
+                        id="comment"
+                        name="comment"
+                        value={formData.comment}
+                        onChange={handleChange}
+                        rows={3}
+                        placeholder="Estimated daily customers, special events, or placement preferences..."
+                        className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 bg-white text-slate-900 placeholder:text-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all shadow-xs resize-none"
+                      />
+                    </div>
+
+                    <div className="flex items-start gap-2.5 pt-1">
+                      <input
+                        type="checkbox"
+                        id="interestedInTips"
+                        name="interestedInTips"
+                        checked={formData.interestedInTips}
+                        onChange={handleChange}
+                        className="mt-1 w-4 h-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500"
+                      />
+                      <label
+                        htmlFor="interestedInTips"
+                        className="text-xs text-slate-500 leading-normal"
+                      >
+                        I want to receive the $1,000 signing bonus promotion and Ontario merchant ATM revenue updates.
+                      </label>
+                    </div>
+
+                    <Button
+                      type="submit"
+                      className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-heading font-extrabold py-4 text-base rounded-xl shadow-lg shadow-emerald-600/20 transition-all hover:shadow-emerald-600/30"
+                    >
+                      Submit Quote Request →
+                    </Button>
+                  </form>
+                )}
+              </div>
+            </div>
           </div>
         </div>
-      </section> */}
+      </section>
 
-      {/* ─── Partner CTA ─── */}
-      {/* <section className="py-20 bg-gradient-to-r from-green-dark to-primary relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(var(--green-glow)/0.3),transparent_60%)]" />
-        <div className="container relative z-10 text-center">
-          <h2 className="font-heading font-bold text-3xl md:text-4xl text-primary-foreground mb-4">Partner with the Leader in ATM Service</h2>
-          <p className="text-primary-foreground/80 text-lg mb-8 max-w-2xl mx-auto">
-            Offering up to <span className="font-bold text-primary-foreground">$1000 Signing Bonus</span>. Bring more cash to your business. Eliminate your Debit and Visa bill.
-          </p>
-          <Button variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary font-heading font-semibold px-8 py-6 text-lg">Contact Us</Button>
-        </div>
-      </section> */}
-
-      {/* ─── Need ATM Form Section ─── */}
-      <section className="py-20 bg-section-alt">
+      {/* ─── Need a ATM Machine? 3 Programs Grid with 3 Distinct Machine Visuals ─── */}
+      <section id="business-options" className="py-24 bg-slate-100/80 border-y border-slate-200/80 relative">
         <div className="container">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div className="relative ">
-              <h2 className="font-heading font-black text-4xl md:text-5xl text-primary mb-4">
-                24 Hour Service!
-              </h2>
-              <p className="text-xl text-muted-foreground mb-2">
-                Need a ATM Machine?
-              </p>
-              <p className="text-muted-foreground mb-6">
-                ATM Ontario offers ATM machines services to businesses,
-                companies and events in all of Ontario. Choose your option
-                below.
-              </p>
-              <img
-                src={atmImage}
-                alt="ATM Machines Rental Ontario"
-                className="w-full rounded-xl shadow-lg"
-              />
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200 text-xs font-heading font-bold uppercase tracking-wider mb-3">
+              <Coins className="w-3.5 h-3.5 text-emerald-700" />
+              <span>Choose Your Revenue Model</span>
             </div>
-            {/* Form */}
-            <div className="bg-card border border-border rounded-xl p-8 ">
-              <h3 className="font-heading font-bold text-xl text-foreground mb-6">
-                Get Your Free Quote
-              </h3>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label
-                      htmlFor="firstName"
-                      className="block text-sm font-medium text-foreground mb-1"
-                    >
-                      First Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="firstName"
-                      name="firstName"
-                      value={formData.firstName}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-2 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="lastName"
-                      className="block text-sm font-medium text-foreground mb-1"
-                    >
-                      Last Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="lastName"
-                      name="lastName"
-                      value={formData.lastName}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-2 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-                    />
-                  </div>
+            <h2 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl text-slate-900 mb-4 tracking-tight">
+              Need an ATM Machine? 3 Flexible Options
+            </h2>
+            <p className="text-slate-600 text-base sm:text-lg">
+              Whether you want 100% passive cash management or maximize your ROI by loading your own cash, MH ATM provides customized programs for every business in Ontario.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 items-stretch">
+            {/* ─── OPTION 1: Complete Turnkey Solution ─── */}
+            <div className="glass-panel rounded-2xl border-2 border-emerald-500/80 shadow-xl p-8 flex flex-col justify-between relative glass-card-interactive">
+              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-emerald-600 text-white font-heading font-black text-xs uppercase tracking-wider shadow-md">
+                ⭐ Most Popular Option
+              </div>
+
+              <div>
+                <div className="text-center mb-6 pt-2">
+                  <span className="text-xs font-bold text-emerald-700 uppercase tracking-widest">
+                    Option 01
+                  </span>
+                  <h3 className="font-heading font-black text-2xl text-slate-900 mt-1">
+                    Turnkey Free Placement
+                  </h3>
+                  <p className="text-xs font-bold text-slate-500 mt-1">
+                    We Supply ATM & Provide All Vault Cash
+                  </p>
                 </div>
-                <div>
-                  <label
-                    htmlFor="company"
-                    className="block text-sm font-medium text-foreground mb-1"
-                  >
-                    Company Name
-                  </label>
-                  <input
-                    type="text"
-                    id="company"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+
+                {/* Machine Image 1 */}
+                <div className="h-56 bg-slate-50 rounded-xl p-4 flex items-center justify-center border border-slate-200 mb-6 shadow-inner">
+                  <img
+                    src={atmSmall}
+                    alt="Turnkey ATM Machine Option"
+                    className="max-h-full object-contain drop-shadow-md hover:scale-105 transition-transform"
                   />
                 </div>
-                <div>
-                  <label
-                    htmlFor="address"
-                    className="block text-sm font-medium text-foreground mb-1"
-                  >
-                    Address
-                  </label>
-                  <input
-                    type="text"
-                    id="address"
-                    name="address"
-                    value={formData.address}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-                  />
-                </div>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label
-                      htmlFor="city"
-                      className="block text-sm font-medium text-foreground mb-1"
-                    >
-                      City
-                    </label>
-                    <input
-                      type="text"
-                      id="city"
-                      name="city"
-                      value={formData.city}
-                      onChange={handleChange}
-                      className="w-full px-4 py-2 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-                    />
+
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-start gap-2.5 text-sm text-slate-700">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>100% Passive:</strong> Zero capital investment or cash required</span>
                   </div>
-                  <div>
-                    <label
-                      htmlFor="province"
-                      className="block text-sm font-medium text-foreground mb-1"
-                    >
-                      Province
-                    </label>
-                    <input
-                      type="text"
-                      id="province"
-                      name="province"
-                      value={formData.province}
-                      onChange={handleChange}
-                      placeholder="Ontario"
-                      className="w-full px-4 py-2 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-                    />
+                  <div className="flex items-start gap-2.5 text-sm text-slate-700">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Full Cash Vaulting:</strong> We stock and insure all money</span>
+                  </div>
+                  <div className="flex items-start gap-2.5 text-sm text-slate-700">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Free Installation:</strong> Hardware, setup, & supplies included</span>
+                  </div>
+                  <div className="flex items-start gap-2.5 text-sm text-slate-700">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Revenue Share:</strong> Monthly surcharge direct deposit</span>
                   </div>
                 </div>
-                <div>
-                  <label
-                    htmlFor="postalCode"
-                    className="block text-sm font-medium text-foreground mb-1"
-                  >
-                    Postal Code
-                  </label>
-                  <input
-                    type="text"
-                    id="postalCode"
-                    name="postalCode"
-                    value={formData.postalCode}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="businessType"
-                    className="block text-sm font-medium text-foreground mb-1"
-                  >
-                    Business Type *
-                  </label>
-                  <select
-                    id="businessType"
-                    name="businessType"
-                    value={formData.businessType}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-2 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-                  >
-                    <option value="">Select Business Type</option>
-                    {businessTypes.map((type) => (
-                      <option key={type} value={type}>
-                        {type}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-foreground mb-1"
-                    >
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-2 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="phone"
-                      className="block text-sm font-medium text-foreground mb-1"
-                    >
-                      Phone *
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-2 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label
-                    htmlFor="comment"
-                    className="block text-sm font-medium text-foreground mb-1"
-                  >
-                    Comments
-                  </label>
-                  <textarea
-                    id="comment"
-                    name="comment"
-                    value={formData.comment}
-                    onChange={handleChange}
-                    rows={4}
-                    className="w-full px-4 py-2 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none"
-                  />
-                </div>
-                <div className="flex items-start gap-3">
-                  <input
-                    type="checkbox"
-                    id="interestedInTips"
-                    name="interestedInTips"
-                    checked={formData.interestedInTips}
-                    onChange={handleChange}
-                    className="mt-1 w-4 h-4 rounded border-input text-primary focus:ring-ring"
-                  />
-                  <label
-                    htmlFor="interestedInTips"
-                    className="text-sm text-muted-foreground"
-                  >
-                    I am also interested in receiving tips, new product
-                    information, and offers about my ATM services
-                  </label>
+              </div>
+
+              <div>
+                <div className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-900 mb-5 text-center font-medium">
+                  Ideal for high-traffic bars, restaurants, clubs, & retail venues.
                 </div>
                 <Button
-                  type="submit"
-                  className="w-full bg-primary text-primary-foreground hover:bg-green-dark font-heading font-semibold py-3 text-lg"
+                  asChild
+                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-heading font-bold py-3.5 rounded-xl shadow-md"
                 >
-                  Submit Request
+                  <a href="#quote-form">Select Option 1 →</a>
                 </Button>
-              </form>
+              </div>
             </div>
-            {/* Image with Text */}
+
+            {/* ─── OPTION 2: Merchant Cash Load ─── */}
+            <div className="glass-panel rounded-2xl border border-slate-200 shadow-lg p-8 flex flex-col justify-between glass-card-interactive">
+              <div>
+                <div className="text-center mb-6">
+                  <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">
+                    Option 02
+                  </span>
+                  <h3 className="font-heading font-black text-2xl text-slate-900 mt-1">
+                    Merchant Cash Load
+                  </h3>
+                  <p className="text-xs font-bold text-slate-500 mt-1">
+                    We Supply ATM & You Load Daily Cash
+                  </p>
+                </div>
+
+                {/* Machine Image 2: Hyosung Force */}
+                <div className="h-56 bg-slate-50 rounded-xl p-4 flex items-center justify-center border border-slate-200 mb-6 shadow-inner">
+                  <img
+                    src={hyosungForce}
+                    alt="Nautilus Hyosung Force Cash Machine"
+                    className="max-h-full object-contain drop-shadow-md hover:scale-105 transition-transform"
+                  />
+                </div>
+
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-start gap-2.5 text-sm text-slate-700">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Free Machine Hardware:</strong> No equipment purchase required</span>
+                  </div>
+                  <div className="flex items-start gap-2.5 text-sm text-slate-700">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Use Daily Register Cash:</strong> Eliminate bank deposit trips</span>
+                  </div>
+                  <div className="flex items-start gap-2.5 text-sm text-slate-700">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>High Surcharge Payout:</strong> Earn up to 85% surcharge share</span>
+                  </div>
+                  <div className="flex items-start gap-2.5 text-sm text-slate-700">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Mobile Alerts:</strong> Real-time low cash SMS warnings</span>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700 mb-5 text-center font-medium">
+                  Ideal for convenience stores, gas stations, & cash-heavy businesses.
+                </div>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="w-full border-slate-300 text-slate-800 hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-300 font-heading font-bold py-3.5 rounded-xl"
+                >
+                  <a href="#quote-form">Select Option 2 →</a>
+                </Button>
+              </div>
+            </div>
+
+            {/* ─── OPTION 3: ATM Purchase & Complete Ownership ─── */}
+            <div className="glass-panel rounded-2xl border border-slate-200 shadow-lg p-8 flex flex-col justify-between glass-card-interactive">
+              <div>
+                <div className="text-center mb-6">
+                  <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">
+                    Option 03
+                  </span>
+                  <h3 className="font-heading font-black text-2xl text-slate-900 mt-1">
+                    Own ATM & Keep 100%
+                  </h3>
+                  <p className="text-xs font-bold text-slate-500 mt-1">
+                    Purchase Machine & Retain All Surcharge
+                  </p>
+                </div>
+
+                {/* Machine Image 3: Halo II */}
+                <div className="h-56 bg-slate-50 rounded-xl p-4 flex items-center justify-center border border-slate-200 mb-6 shadow-inner">
+                  <img
+                    src={atmMachine1}
+                    alt="Nautilus Hyosung Halo II Ownership"
+                    className="max-h-full object-contain drop-shadow-md hover:scale-105 transition-transform"
+                  />
+                </div>
+
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-start gap-2.5 text-sm text-slate-700">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>100% Surcharge Ownership:</strong> Keep all fees collected</span>
+                  </div>
+                  <div className="flex items-start gap-2.5 text-sm text-slate-700">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Free Processing For Life:</strong> Zero transaction fees deducted</span>
+                  </div>
+                  <div className="flex items-start gap-2.5 text-sm text-slate-700">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Financing Available:</strong> Low monthly lease-to-own terms</span>
+                  </div>
+                  <div className="flex items-start gap-2.5 text-sm text-slate-700">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                    <span><strong>Full Warranty & Support:</strong> Dedicated Ontario technicians</span>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700 mb-5 text-center font-medium">
+                  Ideal for established businesses looking for maximum lifetime returns.
+                </div>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="w-full border-slate-300 text-slate-800 hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-300 font-heading font-bold py-3.5 rounded-xl"
+                >
+                  <a href="#quote-form">Select Option 3 →</a>
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ─── ATM Options ─── */}
-      {/* <section className="py-24 bg-background">
+      {/* ─── Business Venues Grid ─── */}
+      {/* <section className="py-24 bg-white">
         <div className="container">
-          <p className="text-primary font-heading font-semibold text-sm tracking-widest uppercase text-center mb-2">ATM OPTIONS</p>
-          <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground text-center mb-16">We offer 3 ATM & Cash Load Options</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {atmOptions.map((option, i) => (
-              <div key={i} className={`rounded-xl border p-8 relative transition-all hover:-translate-y-1 ${option.highlighted ? "border-primary bg-primary/5 shadow-[0_0_40px_-10px_hsl(var(--primary)/0.3)]" : "border-border bg-card"}`}>
-                {option.highlighted && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-xs font-heading font-bold uppercase tracking-wider">Most Popular</div>
-                )}
-                <p className="text-primary font-heading font-bold text-sm mb-1">{option.number}</p>
-                <h3 className="font-heading font-bold text-xl text-foreground mb-3">{option.title}</h3>
-                <p className="text-muted-foreground text-sm mb-6">{option.description}</p>
-                <ul className="space-y-3 mb-8">
-                  {option.features.map((f, j) => (
-                    <li key={j} className="flex items-start gap-3 text-sm text-muted-foreground">
-                      <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />{f}
-                    </li>
-                  ))}
-                </ul>
-                <Button className={`w-full font-heading font-semibold ${option.highlighted ? "bg-primary text-primary-foreground hover:bg-green-dark" : "bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground"}`}>Get a Quote</Button>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200 text-xs font-heading font-bold uppercase tracking-wider mb-3">
+              <Store className="w-3.5 h-3.5 text-emerald-700" />
+              <span>Proven Industry Applications</span>
+            </div>
+            <h2 className="font-heading font-black text-3xl sm:text-4xl text-slate-900 mb-4">
+              Where Our ATM Machines Thrive
+            </h2>
+            <p className="text-slate-600">
+              Commercial properties across Ontario trust MH ATM to drive cash transactions, boost retail basket sizes, and increase average spend per customer.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {venueCategories.map((item, i) => (
+              <div
+                key={i}
+                className="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-emerald-400 hover:bg-emerald-50/40 transition-all hover:-translate-y-1 hover:shadow-md flex items-start gap-4"
+              >
+                <div className="w-12 h-12 rounded-xl bg-emerald-100 border border-emerald-200 flex items-center justify-center text-emerald-700 flex-shrink-0">
+                  <item.icon className="w-6 h-6" />
+                </div>
+                <div>
+                  <h4 className="font-heading font-bold text-lg text-slate-900 mb-1">
+                    {item.name}
+                  </h4>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
-          <p className="text-xs text-muted-foreground text-center mt-6">*Some restrictions apply. Please contact us for more information.</p>
         </div>
       </section> */}
 
-      {/* ─── ATM Images Section ─── */}
-      <section className="py-20 bg-section-alt">
-        <div className="container">
-          <h2 className="font-heading font-black text-4xl md:text-5xl text-foreground text-center mb-12">
-            Need a ATM Machine?
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-card rounded-xl border border-border overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-              <div className="text-white text-2xl font-heading font-bold p-3 text-center">
-                Option 1
-              </div>
-              <div className="text-muted-foreground text-lg p-3 text-center">
-                We Supply ATM & Cash Load
-              </div>
-              <img
-                src={atmSmall}
-                alt="ATM Machine 1"
-                className="w-full p-2 object-cover"
-              />
-              <div className="p-6">
-                <p className="text-muted-foreground my-3 text-sm">
-                  100% Passive No Capital Investment Required Share in ATM
-                  Revenues FREE Service,Installation & Training FREE Processing
-                  and Detailed Reporting Online Monitoring & Real Time Products
-                </p>
-                <h3 className="font-heading font-bold text-center py-3 text-lg text-foreground mb-2">
-                  ATM Ontario provides the vault cash and manages all aspects of the ATM for you. You share in the ATM surcharge revenue and gain all the benefits of offering an ATM.
-                </h3>
-              </div>
+      {/* ─── Signing Bonus Promo Banner ─── */}
+      {/* <section className="py-16 bg-gradient-to-r from-emerald-700 via-emerald-800 to-slate-900 text-white relative overflow-hidden">
+        <div className="container relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="max-w-2xl text-center md:text-left">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-400/20 text-yellow-300 border border-yellow-400/30 text-xs font-heading font-bold uppercase mb-3">
+              <span>💰 Limited Time Ontario Offer</span>
             </div>
-
-            <div className="bg-card rounded-xl border border-border overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-              <div className="text-white text-2xl font-heading font-bold p-3 text-center">
-                Option 2
-              </div>
-              <div className="text-muted-foreground text-lg p-3 text-center">
-                We Supply ATM & You Cash Load
-              </div>
-              <img
-                src={atmSmall}
-                alt="ATM Machine 1"
-                className="w-full p-2 object-cover"
-              />
-              <div className="p-6">
-                <p className="text-muted-foreground my-3 text-sm">
-                  ATM Ontario support & service for life.
-                  No Purchase Required
-                  FREE Service, Installation & Training
-                  Online Monitoring & Real Time Reports
-                  Cash Level Alerts sent to your phone
-                  Processing and detailed reporting at no charge
-                </p>
-                <h3 className="font-heading font-bold text-center py-3 text-lg text-foreground mb-2">
-                  ATM Ontario owns the ATM, you provide the vault cash and earn great returns.
-                </h3>
-              </div>
-            </div>
-
-            <div className="bg-card rounded-xl border border-border overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-              <div className="text-white text-2xl font-heading font-bold p-3 text-center">
-                Option 3
-              </div>
-              <div className="text-muted-foreground text-lg p-3 text-center">
-                Own ATM & Cash Load
-              </div>
-              <img
-                src={atmSmall}
-                alt="ATM Machine 1"
-                className="w-full p-2 object-cover"
-              />
-              <div className="p-6">
-                <p className="text-muted-foreground my-3 text-sm">
-                  Best Return on Investment! FREE Service, Installation &
-                  Training Online Monitoring & Real Time Reports Cash Level
-                  Alerts sent to your phone Financing Available
-                </p>
-                <h3 className="font-heading font-bold text-center py-3 text-lg text-foreground mb-2">
-                  You own the ATM and provide the vault cash. Keep 100% of the
-                  surcharge!
-                </h3>
-              </div>
-            </div>
+            <h3 className="font-heading font-black text-3xl sm:text-4xl text-white mb-2">
+              Qualify for up to $1,000 Upfront Signing Bonus
+            </h3>
+            <p className="text-slate-200 text-sm sm:text-base leading-relaxed">
+              Place a turnkey MH ATM in your eligible Ontario venue today. We provide the equipment, vault cash, installation, and upfront cash bonus.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row items-center gap-4 flex-shrink-0">
+            <Button
+              asChild
+              className="bg-yellow-400 hover:bg-yellow-500 text-slate-950 font-heading font-black px-8 py-6 rounded-xl text-base shadow-xl"
+            >
+              <a href="#quote-form">Claim Bonus Now</a>
+            </Button>
+            <a
+              href="tel:+18449399378"
+              className="text-white hover:text-emerald-300 text-sm font-bold flex items-center gap-2 py-2"
+            >
+              <Phone className="w-4 h-4 text-yellow-400" />
+              <span>Or Call 1-844-939-9378</span>
+            </a>
           </div>
         </div>
-      </section>
-
-
-
-
+      </section> */}
     </div>
   );
 };

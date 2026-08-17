@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="dcBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#090d16"/>
+    </linearGradient>
+    <linearGradient id="rackMetal" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="50%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="blueCable" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Data Center Rack Room Background -->
+  <rect width="600" height="380" fill="url(#dcBg)"/>
+
+  <!-- Server Rack Frame 1 (Left) -->
+  <rect x="50" y="20" width="220" height="340" rx="6" fill="url(#rackMetal)" stroke="#475569" stroke-width="3"/>
+  <rect x="70" y="35" width="180" height="310" fill="#020617"/>
+
+  <!-- Server Blades on Rack 1 -->
+  <!-- Blade 1: Top Router Switch -->
+  <g transform="translate(75, 45)">
+    <rect width="170" height="40" rx="3" fill="#1e293b" stroke="#334155"/>
+    <circle cx="20" cy="20" r="3" fill="#10b981"/>
+    <circle cx="30" cy="20" r="3" fill="#10b981"/>
+    <circle cx="40" cy="20" r="3" fill="#38bdf8"/>
+    <!-- RJ45 Port Matrix -->
+    <g fill="#0f172a" stroke="#475569">
+      <rect x="60" y="10" width="10" height="10" rx="1"/>
+      <rect x="75" y="10" width="10" height="10" rx="1"/>
+      <rect x="90" y="10" width="10" height="10" rx="1"/>
+      <rect x="105" y="10" width="10" height="10" rx="1"/>
+      <rect x="120" y="10" width="10" height="10" rx="1"/>
+      <rect x="135" y="10" width="10" height="10" rx="1"/>
+      <rect x="150" y="10" width="10" height="10" rx="1"/>
+      <!-- Row 2 -->
+      <rect x="60" y="22" width="10" height="10" rx="1"/>
+      <rect x="75" y="22" width="10" height="10" rx="1"/>
+      <rect x="90" y="22" width="10" height="10" rx="1"/>
+      <rect x="105" y="22" width="10" height="10" rx="1"/>
+      <rect x="120" y="22" width="10" height="10" rx="1"/>
+      <rect x="135" y="22" width="10" height="10" rx="1"/>
+      <rect x="150" y="22" width="10" height="10" rx="1"/>
+    </g>
+  </g>
+
+  <!-- Blade 2: Core Gateway -->
+  <g transform="translate(75, 95)">
+    <rect width="170" height="45" rx="3" fill="#1e293b" stroke="#334155"/>
+    <circle cx="15" cy="18" r="4" fill="#38bdf8"/>
+    <circle cx="15" cy="30" r="4" fill="#10b981"/>
+    <rect x="30" y="15" width="40" height="16" fill="#0f172a" rx="2"/>
+    <text x="50" y="26" font-family="monospace" font-size="8" fill="#38bdf8" text-anchor="middle">4G LTE</text>
+  </g>
+
+  <!-- Blade 3: Storage Unit -->
+  <g transform="translate(75, 150)">
+    <rect width="170" height="60" rx="3" fill="#1e293b" stroke="#334155"/>
+    <!-- Hard Drive Bays -->
+    <rect x="10" y="10" width="22" height="40" fill="#0f172a" stroke="#475569"/>
+    <rect x="36" y="10" width="22" height="40" fill="#0f172a" stroke="#475569"/>
+    <rect x="62" y="10" width="22" height="40" fill="#0f172a" stroke="#475569"/>
+    <rect x="88" y="10" width="22" height="40" fill="#0f172a" stroke="#475569"/>
+    <rect x="114" y="10" width="22" height="40" fill="#0f172a" stroke="#475569"/>
+    <rect x="140" y="10" width="22" height="40" fill="#0f172a" stroke="#475569"/>
+  </g>
+
+  <!-- Blade 4 & 5: Lower Server Units -->
+  <g transform="translate(75, 220)">
+    <rect width="170" height="55" rx="3" fill="#1e293b" stroke="#334155"/>
+    <circle cx="155" cy="28" r="18" fill="#0f172a" stroke="#475569" stroke-width="2"/>
+  </g>
+  <g transform="translate(75, 285)">
+    <rect width="170" height="50" rx="3" fill="#1e293b" stroke="#334155"/>
+    <circle cx="155" cy="25" r="18" fill="#0f172a" stroke="#475569" stroke-width="2"/>
+  </g>
+
+  <!-- Server Rack 2 (Right Side) -->
+  <rect x="330" y="20" width="220" height="340" rx="6" fill="url(#rackMetal)" stroke="#475569" stroke-width="3"/>
+  <rect x="350" y="35" width="180" height="310" fill="#020617"/>
+  <!-- Rows of White Horizontal Patch Panels -->
+  <g fill="#f8fafc" stroke="#94a3b8">
+    <rect x="355" y="45" width="170" height="20" rx="2"/>
+    <rect x="355" y="70" width="170" height="20" rx="2"/>
+    <rect x="355" y="95" width="170" height="20" rx="2"/>
+    <rect x="355" y="120" width="170" height="20" rx="2"/>
+    <rect x="355" y="145" width="170" height="20" rx="2"/>
+  </g>
+
+  <!-- Cascading Blue Ethernet Cables Running Down Vertical Trays -->
+  <g stroke="url(#blueCable)" fill="none" opacity="0.95">
+    <path d="M 140,55 C 170,120 180,240 185,340" stroke-width="4"/>
+    <path d="M 155,55 C 190,130 195,250 200,340" stroke-width="4"/>
+    <path d="M 170,55 C 205,140 210,260 215,340" stroke-width="4"/>
+    <path d="M 185,55 C 220,150 225,270 230,340" stroke-width="4"/>
+
+    <!-- Cross-Connects over Right Rack -->
+    <path d="M 230,110 C 290,120 320,160 360,60" stroke-width="3.5" stroke="#38bdf8"/>
+    <path d="M 230,125 C 290,135 320,180 360,85" stroke-width="3.5" stroke="#0ea5e9"/>
+    <path d="M 230,140 C 290,150 320,200 360,110" stroke-width="3.5" stroke="#0284c7"/>
+    <path d="M 230,155 C 290,165 320,220 360,135" stroke-width="3.5" stroke="#0369a1"/>
+  </g>
+
+  <!-- Glowing Status LED Lights Strip -->
+  <g>
+    <circle cx="100" cy="55" r="2.5" fill="#34d399"/>
+    <circle cx="115" cy="55" r="2.5" fill="#34d399"/>
+    <circle cx="130" cy="55" r="2.5" fill="#38bdf8"/>
+    <circle cx="145" cy="55" r="2.5" fill="#38bdf8"/>
+    <circle cx="160" cy="55" r="2.5" fill="#34d399"/>
+    <circle cx="175" cy="55" r="2.5" fill="#34d399"/>
+    <circle cx="190" cy="55" r="2.5" fill="#fbbf24"/>
+  </g>
+
+  <!-- Badge Overlay -->
+  <g transform="translate(160, 335)">
+    <rect width="280" height="30" rx="6" fill="#020617" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="140" y="20" font-family="Arial, sans-serif" font-size="11" font-weight="900" fill="#38bdf8" text-anchor="middle" letter-spacing="1">
+      4G/5G LTE &amp; DIRECT IP NETWORK
+    </text>
+  </g>
+
+  <rect x="0" y="0" width="600" height="380" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+</svg>

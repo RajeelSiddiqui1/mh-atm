@@ -1,6 +1,6 @@
 import * as React from "react"
 
-type Theme = "light" | "dark" | "system"
+type Theme = "light"
 
 interface ThemeProviderProps {
   children: React.ReactNode
@@ -17,55 +17,17 @@ const ThemeContext = React.createContext<ThemeContextValue | undefined>(undefine
 
 export function ThemeProvider({
   children,
-  defaultTheme = "system",
-  storageKey = "mh-atm-theme",
 }: ThemeProviderProps) {
-  const [theme, setTheme] = React.useState<Theme>(() => {
-    if (typeof window !== "undefined") {
-      return (localStorage.getItem(storageKey) as Theme) || defaultTheme
-    }
-    return defaultTheme
-  })
-
   React.useEffect(() => {
     const root = window.document.documentElement
-    root.classList.remove("light", "dark")
-
-    if (theme === "system") {
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light"
-      root.classList.add(systemTheme)
-    } else {
-      root.classList.add(theme)
-    }
-
-    localStorage.setItem(storageKey, theme)
-  }, [theme])
-
-  // Listen for system theme changes
-  React.useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
-    
-    const handleChange = () => {
-      if (theme === "system") {
-        const root = window.document.documentElement
-        root.classList.remove("light", "dark")
-        const systemTheme = mediaQuery.matches ? "dark" : "light"
-        root.classList.add(systemTheme)
-      }
-    }
-
-    mediaQuery.addEventListener("change", handleChange)
-    return () => mediaQuery.removeEventListener("change", handleChange)
-  }, [theme])
+    root.classList.remove("dark")
+    root.classList.add("light")
+  }, [])
 
   const value = React.useMemo(() => ({
-    theme,
-    setTheme: (newTheme: Theme) => {
-      setTheme(newTheme)
-    },
-  }), [theme])
+    theme: "light" as Theme,
+    setTheme: () => {},
+  }), [])
 
   return (
     <ThemeContext.Provider value={value}>
@@ -81,3 +43,4 @@ export function useTheme() {
   }
   return context
 }
+

@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="aboutHeroBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="60%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#064e3b"/>
+    </linearGradient>
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="canadaRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#b91c1c"/>
+    </linearGradient>
+    <linearGradient id="atmBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="50%" stop-color="#e2e8f0"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+    <filter id="heroGlow">
+      <feDropShadow dx="0" dy="10" stdDeviation="15" flood-color="#10b981" flood-opacity="0.3"/>
+    </filter>
+    <filter id="cardShadow">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="700" height="450" rx="16" fill="url(#aboutHeroBg)"/>
+
+  <!-- Radial Light Effect -->
+  <circle cx="350" cy="180" r="220" fill="#10b981" opacity="0.12"/>
+
+  <!-- Toronto / Ontario Skyline Silhouette in Background -->
+  <g fill="#334155" opacity="0.35">
+    <!-- CN Tower Silhouette -->
+    <rect x="220" y="80" width="6" height="260"/>
+    <ellipse cx="223" cy="140" rx="20" ry="8" fill="#475569"/>
+    <polygon points="223,30 221,80 225,80" fill="#64748b"/>
+    <!-- Buildings -->
+    <rect x="80" y="180" width="50" height="160" rx="2"/>
+    <rect x="140" y="140" width="70" height="200" rx="2"/>
+    <rect x="250" y="160" width="80" height="180" rx="2"/>
+    <rect x="340" y="120" width="90" height="220" rx="2"/>
+    <rect x="440" y="170" width="70" height="170" rx="2"/>
+    <rect x="520" y="150" width="90" height="190" rx="2"/>
+  </g>
+
+  <!-- Central Commercial ATM Machine (Nautilus Hyosung Silhouette & Screen) -->
+  <g transform="translate(240, 70)" filter="url(#heroGlow)">
+    <!-- ATM Main Cabinet -->
+    <rect width="220" height="340" rx="14" fill="url(#atmBody)" stroke="#94a3b8" stroke-width="2"/>
+    
+    <!-- Top Illuminated Sign Topper -->
+    <rect x="20" y="15" width="180" height="38" rx="6" fill="#0284c7" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="110" y="40" font-family="Arial, sans-serif" font-size="20" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="2">
+      ATM
+    </text>
+
+    <!-- 10.1" High Definition Screen -->
+    <rect x="25" y="68" width="170" height="110" rx="6" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+    <rect x="35" y="78" width="150" height="90" rx="4" fill="#0284c7" opacity="0.9"/>
+    <text x="110" y="112" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">
+      🍁 WELCOME / BIENVENUE
+    </text>
+    <text x="110" y="132" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#e0f2fe" text-anchor="middle">
+      INTERAC® &amp; CHIP ENABLED
+    </text>
+    <rect x="65" y="142" width="90" height="16" rx="8" fill="#10b981"/>
+    <text x="110" y="154" font-family="Arial, sans-serif" font-size="8" font-weight="900" fill="#0f172a" text-anchor="middle">
+      PRESS TO START
+    </text>
+
+    <!-- EMV Card Reader Bezel & Keypad -->
+    <rect x="35" y="190" width="60" height="35" rx="4" fill="#1e293b"/>
+    <rect x="42" y="202" width="46" height="6" rx="3" fill="#10b981"/> <!-- Green glowing card slot -->
+
+    <rect x="115" y="190" width="70" height="50" rx="4" fill="#334155"/>
+    <!-- Keypad Keys -->
+    <g fill="#94a3b8">
+      <circle cx="128" cy="200" r="3"/><circle cx="150" cy="200" r="3"/><circle cx="172" cy="200" r="3"/>
+      <circle cx="128" cy="212" r="3"/><circle cx="150" cy="212" r="3"/><circle cx="172" cy="212" r="3"/>
+      <circle cx="128" cy="224" r="3"/><circle cx="150" cy="224" r="3"/><circle cx="172" cy="224" r="3"/>
+    </g>
+
+    <!-- Cash Dispenser Vault Door -->
+    <rect x="35" y="252" width="150" height="70" rx="6" fill="#1e293b" stroke="#475569"/>
+    <rect x="55" y="265" width="110" height="12" rx="6" fill="#0f172a" stroke="#10b981" stroke-width="1.5"/>
+    <!-- Level 1 Vault Badge -->
+    <text x="110" y="305" font-family="monospace" font-size="9" font-weight="bold" fill="#34d399" text-anchor="middle">
+      LEVEL 1 UL-291 VAULT
+    </text>
+  </g>
+
+  <!-- Left Floating Badge: 15+ Years Leadership -->
+  <g transform="translate(60, 110)" filter="url(#cardShadow)">
+    <rect width="165" height="75" rx="12" fill="rgba(15, 23, 42, 0.9)" stroke="rgba(16, 185, 129, 0.4)" stroke-width="1.5"/>
+    <circle cx="35" cy="38" r="18" fill="#065f46" stroke="#34d399" stroke-width="1.5"/>
+    <text x="35" y="44" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ecfdf5" text-anchor="middle">15+</text>
+    <text x="65" y="32" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">YEARS IN ONTARIO</text>
+    <text x="65" y="48" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">ESTABLISHED 2007</text>
+    <text x="65" y="62" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#34d399">🍁 100% CANADIAN</text>
+  </g>
+
+  <!-- Right Floating Badge: 10,000+ ATMs Deployed -->
+  <g transform="translate(480, 230)" filter="url(#cardShadow)">
+    <rect width="165" height="75" rx="12" fill="rgba(15, 23, 42, 0.9)" stroke="rgba(56, 189, 248, 0.4)" stroke-width="1.5"/>
+    <circle cx="35" cy="38" r="18" fill="#075985" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="35" y="44" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">🛡️</text>
+    <text x="65" y="32" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">10,000+ FLEET</text>
+    <text x="65" y="48" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">99.9% NETWORK UPTIME</text>
+    <text x="65" y="62" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#38bdf8">24/7 LIVE DISPATCH</text>
+  </g>
+
+  <!-- Canadian Maple Leaf Trust Seal on Bottom Left -->
+  <g transform="translate(70, 260)" filter="url(#cardShadow)">
+    <rect width="145" height="50" rx="10" fill="url(#canadaRed)"/>
+    <text x="25" y="32" font-family="Arial, sans-serif" font-size="20">🍁</text>
+    <text x="50" y="26" font-family="Arial, sans-serif" font-size="10" font-weight="900" fill="#ffffff">PROUDLY CANADIAN</text>
+    <text x="50" y="39" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#fee2e2">OPERATED IN ONTARIO</text>
+  </g>
+</svg>
