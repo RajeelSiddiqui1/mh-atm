@@ -1,11 +1,8 @@
 import { useState } from "react";
 import {
   Phone,
-  MapPin,
   Menu,
   X,
-  Sparkles,
-  ShieldCheck,
   ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";

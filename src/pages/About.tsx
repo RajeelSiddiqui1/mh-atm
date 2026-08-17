@@ -2,22 +2,14 @@ import { Button } from "@/components/ui/button";
 import {
   ShieldCheck,
   CheckCircle2,
-  Sparkles,
   Award,
-  Building2,
   Clock,
   Coins,
   MapPin,
   Phone,
-  Users,
-  Check,
-  ArrowRight,
-  TrendingUp,
 } from "lucide-react";
-import heroAbout from "@/assets/hero-about.svg";
 import heroCanada from "@/assets/hero-slider-canada.jpg";
 import atmOntarioImage from "@/assets/atm-machines-rental-ontario.png";
-import hyosungImage from "@/assets/Nautilus-Hyosung-Force.png";
 
 const ontarioRegions = [
   { name: "Greater Toronto Area (GTA)", areas: "Downtown Toronto, North York, Scarborough, Etobicoke" },

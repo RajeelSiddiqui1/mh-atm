@@ -1,31 +1,16 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
-  ShieldCheck,
   CheckCircle2,
   Sparkles,
-  ArrowRight,
   Phone,
-  Coins,
-  Cpu,
-  Network,
-  Wrench,
-  Layers,
   X,
-  Clock,
-  Award,
-  Zap,
-  Lock,
-  Check,
-  Send,
-  Building2,
 } from "lucide-react";
 import serviceCashMgmt from "@/assets/service-cash-management.svg";
 import serviceTransProc from "@/assets/service-transaction-processing.svg";
 import serviceEquip from "@/assets/service-equipment-supplies.svg";
 import serviceTelecom from "@/assets/service-telecommunications.svg";
 import serviceMaint from "@/assets/service-maintenance.svg";
-import heroServices from "@/assets/hero-services.svg";
 
 /* ─── Services Data matching client screenshots ─── */
 const servicesList = [

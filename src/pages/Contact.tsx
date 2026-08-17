@@ -3,15 +3,10 @@ import { Button } from "@/components/ui/button";
 import {
   MapPin,
   Phone,
-  Mail,
-  Clock,
   Send,
   CheckCircle2,
   Sparkles,
-  ShieldCheck,
-  Building2,
   Navigation,
-  MessageSquare,
 } from "lucide-react";
 import heroContact from "@/assets/hero-contact.svg";
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Phone, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Sparkles, Phone, CheckCircle2 } from "lucide-react";
 import atm1 from "@/assets/atm-machine-1.jpg";
 import atm2 from "@/assets/atm-machine-2.jpg";
 import hyosungForce from "@/assets/Nautilus-Hyosung-Force.png";

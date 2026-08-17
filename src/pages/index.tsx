@@ -3,19 +3,10 @@ import { Button } from "@/components/ui/button";
 import {
   ChevronLeft,
   ChevronRight,
-  ShieldCheck,
   CheckCircle2,
   Phone,
   Sparkles,
-  TrendingUp,
-  Clock,
   Coins,
-  Store,
-  Fuel,
-  Utensils,
-  Wine,
-  Building2,
-  CalendarDays,
   ArrowRight,
   Award,
 } from "lucide-react";
@@ -83,38 +74,7 @@ const businessTypes = [
   "Other Commercial Venue",
 ];
 
-const venueCategories = [
-  {
-    icon: Store,
-    name: "Convenience Stores",
-    desc: "Boost impulse buys and eliminate credit card swipe fees.",
-  },
-  {
-    icon: Fuel,
-    name: "Gas Stations",
-    desc: "Keep customers on-site with quick, secure cash access.",
-  },
-  {
-    icon: Wine,
-    name: "Bars & Nightclubs",
-    desc: "Cash-only bar sales speed up line throughput and tips.",
-  },
-  {
-    icon: Utensils,
-    name: "Restaurants & Diners",
-    desc: "Give diners convenient payment flexibility.",
-  },
-  {
-    icon: Building2,
-    name: "Hotels & Motels",
-    desc: "Provide 24/7 amenity value for travelers and tourists.",
-  },
-  {
-    icon: CalendarDays,
-    name: "Events & Festivals",
-    desc: "Mobile high-capacity ATMs for weekend fairs and concerts.",
-  },
-];
+
 
 /* ─── Page Component ─── */
 const Index = () => {
@@ -820,76 +780,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ─── Business Venues Grid ─── */}
-      {/* <section className="py-24 bg-white">
-        <div className="container">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200 text-xs font-heading font-bold uppercase tracking-wider mb-3">
-              <Store className="w-3.5 h-3.5 text-emerald-700" />
-              <span>Proven Industry Applications</span>
-            </div>
-            <h2 className="font-heading font-black text-3xl sm:text-4xl text-slate-900 mb-4">
-              Where Our ATM Machines Thrive
-            </h2>
-            <p className="text-slate-600">
-              Commercial properties across Ontario trust MH ATM to drive cash transactions, boost retail basket sizes, and increase average spend per customer.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {venueCategories.map((item, i) => (
-              <div
-                key={i}
-                className="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-emerald-400 hover:bg-emerald-50/40 transition-all hover:-translate-y-1 hover:shadow-md flex items-start gap-4"
-              >
-                <div className="w-12 h-12 rounded-xl bg-emerald-100 border border-emerald-200 flex items-center justify-center text-emerald-700 flex-shrink-0">
-                  <item.icon className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="font-heading font-bold text-lg text-slate-900 mb-1">
-                    {item.name}
-                  </h4>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
-      {/* ─── Signing Bonus Promo Banner ─── */}
-      {/* <section className="py-16 bg-gradient-to-r from-emerald-700 via-emerald-800 to-slate-900 text-white relative overflow-hidden">
-        <div className="container relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="max-w-2xl text-center md:text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-400/20 text-yellow-300 border border-yellow-400/30 text-xs font-heading font-bold uppercase mb-3">
-              <span>💰 Limited Time Ontario Offer</span>
-            </div>
-            <h3 className="font-heading font-black text-3xl sm:text-4xl text-white mb-2">
-              Qualify for up to $1,000 Upfront Signing Bonus
-            </h3>
-            <p className="text-slate-200 text-sm sm:text-base leading-relaxed">
-              Place a turnkey MH ATM in your eligible Ontario venue today. We provide the equipment, vault cash, installation, and upfront cash bonus.
-            </p>
-          </div>
-          <div className="flex flex-col sm:flex-row items-center gap-4 flex-shrink-0">
-            <Button
-              asChild
-              className="bg-yellow-400 hover:bg-yellow-500 text-slate-950 font-heading font-black px-8 py-6 rounded-xl text-base shadow-xl"
-            >
-              <a href="#quote-form">Claim Bonus Now</a>
-            </Button>
-            <a
-              href="tel:+18449399378"
-              className="text-white hover:text-emerald-300 text-sm font-bold flex items-center gap-2 py-2"
-            >
-              <Phone className="w-4 h-4 text-yellow-400" />
-              <span>Or Call 1-844-939-9378</span>
-            </a>
-          </div>
-        </div>
-      </section> */}
     </div>
   );
 };

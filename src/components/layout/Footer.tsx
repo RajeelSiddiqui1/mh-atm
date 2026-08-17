@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, ShieldCheck, Clock, CheckCircle2 } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 const footerLinks = [
   { name: "Home", path: "/" },
@@ -7,28 +7,6 @@ const footerLinks = [
   { name: "Services", path: "/services" },
   { name: "About Us", path: "/about" },
   { name: "Contact Us", path: "/contact" },
-];
-
-const footerServices = [
-  "Free Turnkey Placement",
-  "Merchant Cash Load Program",
-  "ATM Sales & Leasing",
-  "24/7 Vault Cash Management",
-  "Interac / Visa / Mastercard Processing",
-  "Same-Day Maintenance & Repair",
-];
-
-const ontarioCities = [
-  "Toronto & GTA",
-  "Mississauga",
-  "Brampton",
-  "Hamilton",
-  "Ottawa",
-  "London",
-  "Kitchener-Waterloo",
-  "Markham & Vaughan",
-  "Niagara Region",
-  "Windsor",
 ];
 
 const Footer = () => {
